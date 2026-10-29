@@ -58,7 +58,8 @@ button{font:inherit;color:inherit}
   padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .hoja .in{max-width:560px;margin:0 auto}
 .hoja header{display:flex;align-items:center;justify-content:space-between;min-height:48px;position:sticky;top:0;background:var(--bg);z-index:1}
-.hoja h2{margin:0;font-size:20px}
+.hoja h2{margin:0;font-size:22px}
+.sub{margin:0 0 4px;color:var(--muted);font-size:15px}
 .cuad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
 .mini{position:relative;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:var(--card);cursor:pointer}
 .mini img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
@@ -102,7 +103,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 </div></div>
 
 <div class="hoja" id="todos" hidden role="dialog" aria-label="Todos los logos"><div class="in">
-  <header><h2>Todos</h2><button class="chip" id="cerrarTodos" type="button">Cerrar</button></header>
+  <header><h2>Elige tu logo</h2><button class="chip lleno" id="todosFav" type="button" hidden>♥ <span id="nFav2">0</span></button></header>
+  <p class="sub">Toca uno para verlo en grande.</p>
   <div class="cuad" id="cuad"></div>
 </div></div>
 
@@ -121,7 +123,7 @@ const ELLA=69;
 const VISTAS=[['logo','Logo'],['kit','Marca'],['calle','Tienda'],['prod','Productos']];
 const TONOS=[['orig','Original','linear-gradient(135deg,#d8b45f,#053324)'],['negro','Negro','#141211'],['blanco','Blanco','#ffffff']];
 const $=id=>document.getElementById(id);
-let i=0, vista='logo', tono='orig', favs=new Set();
+let i=0, vista='logo', tono='orig', favs=new Set(), visto=false;
 try{ favs=new Set(JSON.parse(localStorage.getItem('gnbf-favs')||'[]').filter(n=>LISTA.includes(n))); }catch(e){}
 function guardar(){ try{ localStorage.setItem('gnbf-favs', JSON.stringify([...favs])); }catch(e){} }
 function src(n,v,t){ const suf=t==='orig'?'':'-'+t; return v==='logo'?`../img/${n}${suf}.jpg`:`../img/${n}-${v}${suf}.jpg`; }
@@ -164,16 +166,19 @@ $('escena').addEventListener('touchend',e=>{ if(x0===null) return; const dx=e.ch
   if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.5) ir(dx<0?1:-1); },{passive:true});
 document.addEventListener('keydown',e=>{ if(!$('todos').hidden||!$('fin').hidden){ if(e.key==='Escape'){ $('todos').hidden=true; $('fin').hidden=true; } return; }
   if(e.key==='ArrowRight') ir(1); if(e.key==='ArrowLeft') ir(-1); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && $('todos').hidden && $('fin').hidden) abrirTodos(); });
 
 // todos en cuadrícula
-function mini(n, onClick){ const b=document.createElement('button'); b.type='button'; b.className='mini'+(favs.has(n)?' si':'')+(n===LISTA[i]?' aqui':'');
+function mini(n, onClick){ const b=document.createElement('button'); b.type='button'; b.className='mini'+(favs.has(n)?' si':'')+(visto&&n===LISTA[i]?' aqui':'');
   b.setAttribute('aria-label',`Logo ${n}${favs.has(n)?', te gusta':''}`);
   const im=document.createElement('img'); im.src=`../img/${n}.jpg`; im.alt=''; im.loading='lazy';
   const s=document.createElement('span'); s.textContent=n; b.append(im,s); b.onclick=onClick; return b; }
-$('verTodos').onclick=()=>{ const C=$('cuad'); C.textContent='';
-  LISTA.forEach((n,k)=>C.appendChild(mini(n,()=>{ i=k; $('todos').hidden=true; pintar(); window.scrollTo({top:0}); })));
-  $('todos').hidden=false; };
-$('cerrarTodos').onclick=()=>$('todos').hidden=true;
+function abrirTodos(){ const C=$('cuad'); C.textContent='';
+  LISTA.forEach((n,k)=>C.appendChild(mini(n,()=>{ i=k; visto=true; $('todos').hidden=true; pintar(); window.scrollTo({top:0}); })));
+  $('todosFav').hidden=!favs.size; $('nFav2').textContent=favs.size;
+  $('todos').hidden=false; $('todos').scrollTop=0; }
+$('verTodos').onclick=abrirTodos;
+$('todosFav').onclick=()=>{ $('todos').hidden=true; abrirFin(); };
 
 // final: favoritos + WhatsApp
 function abrirFin(){
@@ -186,8 +191,9 @@ function abrirFin(){
 }
 $('verFin').onclick=abrirFin;
 $('cerrarFin').onclick=()=>$('fin').hidden=true;
-$('otraVez').onclick=()=>{ $('fin').hidden=true; i=0; pintar(); window.scrollTo({top:0}); };
+$('otraVez').onclick=()=>{ $('fin').hidden=true; abrirTodos(); };
 pintar();
+abrirTodos();   // abre en «Todos»: primero los ve todos y toca el que quiera
 </script>
 </body>
 </html>
