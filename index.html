@@ -1,0 +1,345 @@
+<meta charset="utf-8">
+<title>Logo de Glamour Nails</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Presentación sencilla: fondo claro, letra del sistema (la del teléfono), solo números, dos logos por fila. */
+:root{
+  --bg:#f7f5f2; --card:#ffffff; --line:#e4dfd8; --fg:#1c1a18; --muted:#77706a; --accent:#b2385a; --dark:#1c1a18; --on-dark:#ffffff;
+  --font:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#121110; --card:#1c1a18; --line:#33302c; --fg:#f2efea; --muted:#a39c94; --accent:#e0718f; --dark:#f2efea; --on-dark:#121110; color-scheme:dark; } }
+:root[data-theme="dark"]{ --bg:#121110; --card:#1c1a18; --line:#33302c; --fg:#f2efea; --muted:#a39c94; --accent:#e0718f; --dark:#f2efea; --on-dark:#121110; color-scheme:dark; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
+main{max-width:640px;margin:0 auto;padding-top:16px;display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
+header{padding-top:28px;display:flex;flex-direction:column;gap:4px}
+.marca{font-size:14px;color:var(--muted)}
+h1{font-size:28px;font-weight:700;letter-spacing:-.01em;line-height:1.15;margin:0}
+.intro{color:var(--muted);margin:0;font-size:15px}
+.yo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.yo p{margin:0;flex:1 1 180px;font-size:14px}
+.btn{font:600 14px var(--font);min-height:40px;padding:8px 14px;border-radius:6px;border:1px solid var(--dark);background:var(--dark);color:var(--on-dark);cursor:pointer}
+.btn.lin{background:transparent;color:var(--fg);border-color:var(--line)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px;align-items:start}
+.op{position:relative;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.op.sel{border-color:var(--dark);box-shadow:0 0 0 1px var(--dark)}
+.op button.zoom{all:unset;cursor:zoom-in;display:block}
+.op img{display:block;width:100%;aspect-ratio:1}
+.tag{position:absolute;top:8px;left:8px;font:600 12px var(--font);padding:3px 8px;border-radius:4px;background:#fff;color:#1c1a18}
+.info{padding:6px 8px 8px;display:flex;flex-direction:column;gap:6px}
+.fila{display:flex;align-items:center;justify-content:space-between}
+.num{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;padding-left:2px}
+.heart{width:40px;height:40px;display:grid;place-items:center;padding:0;border:0;background:transparent;color:var(--muted);cursor:pointer;border-radius:6px}
+.heart svg{fill:none;stroke:currentColor;stroke-width:1.8}
+.op.fav .heart{color:var(--accent)}
+.op.fav .heart svg{fill:currentColor}
+.ver{display:flex;gap:6px}
+.sm{flex:1;min-width:0;min-height:40px;font:500 13px var(--font);padding:6px 2px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.pick{min-height:40px;font:600 14px var(--font);padding:6px 10px;border-radius:6px;border:1px solid var(--dark);background:transparent;color:var(--fg);cursor:pointer}
+.op.sel .pick{background:var(--dark);color:var(--on-dark)}
+.marca-b{min-height:40px;font:600 14px var(--font);padding:6px 4px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.out{min-height:44px;font:600 14px var(--font);padding:6px 10px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.fijo{margin:0;font-size:13px;color:var(--muted);text-align:center;padding:10px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.box h2{font-size:17px;font-weight:700;margin:0}
+.qgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.qit{display:flex;flex-direction:column;gap:4px}
+.qit img{width:100%;aspect-ratio:1;border-radius:6px;display:block;opacity:.55}
+.qit button{min-height:40px;font:600 13px var(--font);border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+label{font-size:14px;color:var(--muted)}
+textarea{font:15px var(--font);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;min-height:64px;resize:vertical}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--card);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar .in{max-width:640px;margin:0 auto;display:flex;gap:12px;align-items:center}
+.what{flex:1;min-width:0;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.send{font:600 16px var(--font);min-height:46px;padding:10px 24px;border-radius:6px;border:0;background:var(--dark);color:var(--on-dark);cursor:pointer}
+.send:disabled{opacity:.35;cursor:default}
+.msg{font-size:16px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;user-select:all}
+.copy{align-self:flex-start;font:600 14px var(--font);min-height:40px;padding:8px 14px;border-radius:6px;border:1px solid var(--dark);background:transparent;color:var(--fg);cursor:pointer}
+.votes{margin:0;padding-left:18px}.votes li{margin-bottom:6px;font-size:14px}
+.lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.94);display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;padding:calc(60px + env(safe-area-inset-top,0px)) 12px calc(16px + env(safe-area-inset-bottom,0px))}
+.lb img{max-width:100%;max-height:calc(100vh - 230px);object-fit:contain}
+.lbnav{display:flex;align-items:center;gap:14px;color:#fff}
+.lbnav b{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;min-width:2.2em;text-align:center}
+.flecha{width:44px;height:44px;border-radius:6px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:600 20px var(--font);cursor:pointer}
+.lbtabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.lt{min-height:40px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:500 14px var(--font);cursor:pointer}
+.lt.on{background:#fff;color:#1c1a18;border-color:#fff}
+.lbcolor{display:flex;gap:8px;align-items:center}
+.tono{display:flex;align-items:center;gap:6px;min-height:40px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:500 14px var(--font);cursor:pointer}
+.tono i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:inline-block}
+.tono.on{border-color:#fff;box-shadow:0 0 0 1px #fff inset}
+#lbClose{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));font:600 15px var(--font);min-height:40px;padding:8px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<main>
+
+  <section class="yo" id="yo" hidden><p id="yoT"></p><span id="yoB" style="display:flex;gap:8px;flex-wrap:wrap"></span></section>
+
+  <section class="list" id="list" aria-label="Logos"></section>
+
+  <section class="box" id="quitados" hidden>
+    <h2>Quitados</h2>
+    <div class="qgrid" id="qgrid"></div>
+  </section>
+
+
+  <section class="box" id="hecho" hidden>
+    <h2>¡Gracias!</h2>
+    <p id="hechoTxt" style="margin:0"></p>
+    <div id="copiar" hidden style="display:flex;flex-direction:column;gap:10px">
+      <span>Mándaselo a Cris:</span>
+      <div class="msg" id="msgTxt"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="copy" id="waBtn" href="#" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center">Mandar por WhatsApp</a><button class="copy" id="copyBtn" type="button">Copiar</button></div>
+    </div>
+  </section>
+
+  <section class="box" id="votos" hidden>
+    <h2>Votos</h2>
+    <ul class="votes" id="votosList"></ul>
+  </section>
+</main>
+
+<div class="bar"><div class="in">
+  <div class="what" id="what">Elige uno</div>
+  <button class="send" id="send" type="button" disabled>Enviar</button>
+</div></div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Logo en grande">
+  <img id="lbImg" alt="">
+  <div class="lbnav"><button class="flecha" id="lbPrev" type="button" aria-label="Anterior">‹</button><b id="lbNum"></b><button class="flecha" id="lbNext" type="button" aria-label="Siguiente">›</button></div>
+  <div class="lbtabs" id="lbTabs"></div>
+  <div class="lbcolor" id="lbColor"></div>
+  <button type="button" id="lbClose">Cerrar</button>
+</div>
+
+<script>
+const OPS=[
+ {n:1,r:1,calle:1,name:"GNBF dorado",desc:"Las cuatro letras entrelazadas con la uña y las antenas de mariposa, con destello."},
+ {n:2,r:1,calle:1,name:"La uña",desc:"Las letras GNBF recortadas dentro de una uña almendra dorada."},
+ {n:3,r:1,calle:1,name:"Mariposa de B",desc:"Dos B forman las alas y una uña es el cuerpo. G, N y F escondidas en las alas."},
+ {n:4,r:1,calle:1,name:"Arco de salón",desc:"Una G grande con la F adentro, dentro de un arco como un espejo de salón."},
+ {n:5,r:1,calle:1,name:"Sello",desc:"El nombre completo en círculo y GNBF en el centro. Crema y nude."},
+ {n:6,r:1,calle:1,name:"Firma GF",desc:"G y F en caligrafía, como una firma, en dorado sobre negro."},
+ {n:7,r:1,calle:1,name:"Valiente",desc:"GNBF gigante en negro sobre nude, con una uña sobre la F."},
+ {n:8,r:2,calle:1,name:"Entrelazado",desc:"G grande con la N escondida adentro; F y B comparten el tallo; uña francesa en la B."},
+ {n:9,r:2,calle:1,name:"GF con uña",desc:"La F atraviesa la G y el tallo de la G es una uña. Nombre completo abajo."},
+ {n:10,r:2,calle:1,name:"Itálica",desc:"Las cuatro letras en cursiva, en cascada y entrelazadas."},
+ {n:11,r:2,calle:1,name:"Nombre entero Bodoni",desc:"Glamour Nails con la G grande; el punto de la i es una uña."},
+ {n:12,r:2,calle:1,name:"La N con uña",desc:"La diagonal de la N es una uña; la F comparte el tallo; G y B en los huecos."},
+ {n:13,r:3,calle:1,name:"Firma",desc:"El nombre como firma a mano, crema y ciruela. Personal."},
+ {n:14,r:3,calle:1,name:"Dos uñas = mariposa",desc:"Cuatro uñas almendra forman una mariposa. Moderno y limpio."},
+ {n:15,r:3,calle:1,name:"Emblema",desc:"Sello redondo con mariposa a línea, vino y beige. Marca seria."},
+ {n:16,r:3,calle:1,name:"Art déco",desc:"Marco con abanicos y mariposa geométrica, verde y dorado. Lujo."},
+ {n:17,r:3,calle:1,name:"Romántico",desc:"Mariposa posada en una rama, script rosa. Suave."},
+ {n:18,r:3,calle:1,name:"Editorial",desc:"GLAMOUR gigante tipo revista; la I de NAILS es una uña."},
+ {n:19,r:4,calle:1,name:"Mariposa escondida",desc:"Una uña nude con la mariposa recortada adentro (espacio negativo)."},
+ {n:20,r:4,calle:1,name:"La mano",desc:"Mano a línea con las uñas pintadas, dentro de un arco, nombre alrededor."},
+ {n:21,r:4,calle:1,name:"La uña es una ventana",desc:"Una uña cuadrada abierta a un cielo de noche con luna, estrellas y mariposa."},
+ {n:22,r:4,calle:1,name:"Pincelada",desc:"Mariposa hecha con pinceladas de esmalte fucsia, letra a pincel."},
+ {n:23,r:4,calle:1,name:"Corazón mariposa",desc:"Un corazón que también es una mariposa. Doble lectura."},
+ {n:24,r:5,calle:1,name:"GNBF mariposa",desc:"Las cuatro letras forman una mariposa. Oro sobre verde esmeralda. (IA; si gana, se calca con código.)"},
+ {n:25,r:5,calle:1,name:"Mano a línea",desc:"Mano elegante en una sola línea dorada, uñas nude, mariposa en el dedo. (IA.)"},
+ {n:26,r:5,calle:1,name:"Y2K cromado",desc:"Mariposa cromada rosa-lila y letras de cromo líquido. Tendencia 2000s. (IA.)"},
+ {n:27,r:5,calle:1,name:"Neón",desc:"Letrero de neón rosa y dorado con mariposa, sobre negro. (IA.)"},
+ {n:28,r:5,calle:1,name:"Esmalte vector",desc:"Frasco de esmalte con tapa de mariposa, plano, terracota. (IA vectorial.)"},
+ {n:29,r:5,calle:1,name:"GNBF monolínea",desc:"Monograma geométrico de una sola línea con mariposa en el centro. (IA vectorial.)"},
+ {n:30,r:6,calle:1,name:"La mano",desc:"Mano a línea bien proporcionada, uñas nude, mariposa sobre el índice."},
+ {n:31,r:6,calle:1,name:"Boho",desc:"Arco con sol, luna y estrellas, mariposa a línea, terracota sobre crema."},
+ {n:32,r:6,calle:1,name:"Retro groovy",desc:"Letras redondas años 70 en dos tonos, mariposa naranja y rosa."},
+ {n:33,r:6,calle:1,name:"Una sola línea",desc:"Mariposa dibujada de un solo trazo continuo, nombre fino en minúsculas."},
+ {n:34,r:6,calle:1,name:"Letrero clásico",desc:"GLAMOUR NAILS en letra de cartel con cinta vino para by Francia."},
+ {n:35,r:7,calle:1,name:"GNBF de ahora (calcado)",desc:"Tu logo actual pasado a vector pieza por pieza: G y F más grandes y destello dorado."},
+ {n:36,r:8,calle:1,name:"Gorda de revista",desc:"‘glamour’ en minúscula Didone muy negra, letras que casi se tocan; NAILS BY FRANCIA fino abajo. Ref: Odele."},
+ {n:37,r:8,calle:1,name:"Alta y rosa",desc:"GLAMOUR NAILS en serif condensada altísima, negro sobre rosa fuerte, by Francia en cursiva. Ref: Halle."},
+ {n:38,r:8,calle:1,name:"Línea fina",desc:"Mayúsculas finas y espaciadas; las A sin barra (Λ). Terracota sobre crema. Ref: ARUNA, Celine."},
+ {n:39,r:8,calle:1,name:"Sello de letras",desc:"G N / B F en un cuadro con cruz fina, como un sello de joyería; nombre completo abajo. Ref: Bare Law."},
+ {n:40,r:8,calle:1,name:"Collage",desc:"Glamour derecha y Nails en cursiva, apretadas una contra otra. Crema sobre chocolate. Ref: Amélie Promised."},
+ {n:41,r:8,calle:1,name:"La R larga",desc:"GLAMOUR en Didone; la pierna de la R se alarga y remata la línea de NAILS BY FRANCIA. Ref: NŨR."},
+ {n:42,r:8,calle:1,name:"Etiqueta",desc:"Como una etiqueta de perfume, letra de máquina de escribir. Ref: Le Labo."},
+ {n:43,r:8,calle:1,name:"Suave",desc:"glamour nails en serif redondeada y gordita, vino sobre rosa. Ref: tikrà, Cherie."},
+ {n:44,r:8,calle:1,name:"Gótica cromada",desc:"Letra gótica con efecto cromo, como las uñas cromadas. Ref: Elixir, tendencia metal gótico."},
+ {n:45,r:9,calle:1,name:"Cortada",desc:"GLAMOUR con un corte horizontal: la mitad de arriba corrida, y la línea del corte sigue a los lados. Crema sobre verde. Ref: letra cortada 2026."},
+ {n:46,r:9,calle:1,name:"Vertical",desc:"GLAMOUR NAILS de pie en una franja roja, como un letrero de puerta o un tubo de crema. Ref: VALÉRA."},
+ {n:47,r:9,calle:1,name:"Art nouveau",desc:"Letras altas de cintura alta, by Francia en cursiva cobre. Rosa sobre gris oliva. Ref: WILD & FREE."},
+ {n:48,r:9,calle:1,name:"Ancha",desc:"GLAMOUR en letra extra ancha y fina, como casa de moda. Marfil sobre moca. Ref: LUNÁRE."},
+ {n:49,r:9,calle:1,name:"Cartel con subrayado",desc:"Letra de cartel inclinada con un subrayado de pincel. Rojo cereza sobre crema. Ref: Baret, Vanguard."},
+ {n:50,r:9,calle:1,name:"Letras encimadas",desc:"G N B F gordas que se pisan y mezclan el color donde se cruzan. Ref: logos de transparencias."},
+ {n:51,r:10,calle:1,name:"Casa de moda negra",desc:"GLAMOUR NAILS en letra de palo gruesa y apretada, negro sobre blanco, como las casas de moda. Ref: Celine (2018), Saint Laurent."},
+ {n:52,r:10,calle:1,name:"Caja rosa",desc:"Un rosa propio que se vuelve la marca (cajas, bolsas, letrero) con letra clásica. Ref: la caja azul de Tiffany & Co."},
+ {n:53,r:10,calle:1,name:"Óvalo que baila",desc:"Las letras bailan dentro de un óvalo, como una etiqueta. En la tienda va pegado en la vitrina. Ref: Diptyque."},
+ {n:54,r:10,calle:1,name:"Patrón GNBF + placa",desc:"Las cuatro letras repetidas en diagonal como estampado (bolsas, paredes, papel) y una placa con el nombre. Ref: Dior Oblique, Louis Vuitton Monogram."},
+ {n:55,r:10,calle:1,name:"Naranja de casa",desc:"Letra de patas cuadradas, chocolate sobre un naranja propio. Ref: Hermès."},
+ {n:56,r:10,calle:1,name:"Caja de calle",desc:"Glamour Nails en blanco inclinado dentro de una caja fucsia, estilo calle. Ref: Supreme, Barbara Kruger."},
+ {n:57,r:11,calle:1,name:"La I es un frasco",desc:"GLAMOUR NAILS donde la I de NAILS es un frasco de esmalte rojo. Ref: NAIL LAOUNGE."},
+ {n:58,r:11,calle:1,name:"Gota de esmalte",desc:"Glamour en rojo esmalte, con chorros que gotean y una gota grande. Ref: logos que gotean (TruColor)."},
+ {n:59,r:11,calle:1,name:"Pincelada de esmalte",desc:"El pincel del frasco pinta una pincelada rosa con el nombre en letra de firma."},
+ {n:60,r:11,calle:1,name:"Carta de colores",desc:"Cinco uñas como muestrario de esmaltes (nude, rosa, rojo, vino, noir) sobre el nombre. Ref: Esty Glams."},
+ {n:61,r:11,calle:1,name:"Cuatro uñas GNBF",desc:"Cuatro uñas almendra en abanico, cada una con una letra dorada: G N B F."},
+ {n:62,r:11,calle:1,name:"Puntas francesas",desc:"GLAMOUR en letras gorditas color nude con la punta blanca, como una manicura francesa."},
+ {n:63,r:12,calle:1,name:"Foil dorado",desc:"GLAMOUR NAILS en oro estampado sobre negro, con una uña almendra fina arriba. Como una caja de perfume. Ref: Lumière, Navangi."},
+ {n:64,r:12,calle:1,name:"Sello de lacre",desc:"Un sello de cera vino con la uña y la G en relieve, el nombre alrededor. Para cerrar bolsas y tarjetas de regalo. Ref: Loren & Co."},
+ {n:65,r:12,calle:1,name:"Joyero con diamante",desc:"Una uña de línea dorada con un diamante en la punta, nombre muy espaciado. Oro sobre verde esmeralda. Ref: estuches de joyería."},
+ {n:66,r:12,calle:1,name:"Monograma oro rosa",desc:"G y F en letra de firma, en oro rosa dentro de un doble anillo. Ref: monogramas de lujo, Glossé."},
+ {n:67,r:12,calle:1,name:"Tarjeta negra en relieve",desc:"GLAMOUR NAILS en relieve negro sobre negro (como papel grabado), marco y BY FRANCIA en oro. Ref: tarjetas negras de lujo, Lumière."},
+ {n:68,r:12,calle:1,name:"Emblema frasco de oro",desc:"Un frasco de esmalte de línea dorada con GN/BF adentro, sobre vino. Ref: Glossé, mischo (esmaltes de lujo)."},
+ {n:69,r:7,calle:1,name:"Su logo de ahora",desc:"El logo que Francia usa hoy (el original), para comparar."}
+];
+const SIEMPRE=[69];   // el logo real de Francia (el original): siempre al final, no se puede quitar
+// los que Cris eligió + los nuevos (uñas y lujo), en este orden
+const BASE=[1,2,13,17,24,41,49,53,57,58,59,60,61,62,63,64,65,66,67,68];
+const HEART='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>';
+const op=n=>OPS[n-1];
+const $=id=>document.getElementById(id);
+const runtime=false;   // página suelta (sin cuenta): no hay base de datos
+let db=null, uid=null, isOwner=false;
+let favs=new Set(), sel=null;
+let modo='ver';            // 'ver' | 'quitar'
+let porLink=false;         // la página vino con #ver-… (link para Francia)
+let mia=[1,2,13,17,24,41,49,53,57,58,59,60,61,62,63,64,65,66,67,68];   // fija para Francia
+let lista=mia||BASE.slice();
+
+function leerLocal(){ try{ const v=JSON.parse(localStorage.getItem('gnbf-lista')||'null'); return Array.isArray(v)&&v.length?v:null; }catch(e){ return null; } }
+function leerHash(){ const m=/^#ver-(\d+(?:-\d+)*)$/.exec(location.hash||''); if(!m) return null; return m[1].split('-').map(Number).filter(n=>n>=1&&n<=OPS.length&&!SIEMPRE.includes(n)); }
+function ordenar(nums){ return BASE.filter(n=>nums.includes(n)).concat(nums.filter(n=>!BASE.includes(n)).sort((a,b)=>a-b)); }
+function puedeEditar(){ return false; }
+function guardar(){
+  mia=lista.slice();
+  try{ localStorage.setItem('gnbf-lista', JSON.stringify(mia)); }catch(e){}
+  if(db && isOwner){ db.doc('config/lista').set({nums:mia, fecha:new Date().toISOString()}).catch(()=>{}); }
+}
+function boton(txt, cls, fn){ const b=document.createElement('button'); b.type='button'; b.className='btn'+(cls?' '+cls:''); b.textContent=txt; b.onclick=fn; return b; }
+// visor: el logo, sus versiones (logo, horizontal, nombre, ícono), en la tienda y en productos
+const KIT=new Set(BASE.concat(SIEMPRE));
+let lbN=null, lbV='logo', tono='orig';
+const TONOS=[['orig','Original','linear-gradient(135deg,#d8b45f,#053324)'],['negro','Negro','#141211'],['blanco','Blanco','#ffffff']];
+function vistas(n){ return [['logo','Logo']].concat(KIT.has(n)?[['kit','Marca']]:[], [['calle','Tienda'],['prod','Productos']]); }
+function abrir(n, v){ lbN=n; lbV=v||'logo'; pintarLb(); $('lb').hidden=false; }
+function pintarLb(){
+  const suf = tono==='orig' ? '' : '-'+tono;
+  $('lbImg').src = lbV==='logo' ? `img/${lbN}${suf}.jpg` : `img/${lbN}-${lbV}${suf}.jpg`;
+  const tab=vistas(lbN).find(v=>v[0]===lbV); $('lbImg').alt=`Logo ${lbN} · ${tab?tab[1]:''}`;
+  $('lbNum').textContent=lbN;
+  const T=$('lbTabs'); T.textContent='';
+  vistas(lbN).forEach(([k,t])=>{ const b=document.createElement('button'); b.type='button'; b.className='lt'+(k===lbV?' on':''); b.textContent=t; b.setAttribute('aria-pressed',k===lbV); b.onclick=()=>{ lbV=k; pintarLb(); }; T.appendChild(b); });
+  const C=$('lbColor'); C.textContent='';
+  TONOS.forEach(([k,t,sw])=>{ const b=document.createElement('button'); b.type='button'; b.className='tono'+(k===tono?' on':''); b.setAttribute('aria-pressed',k===tono);
+    const i=document.createElement('i'); i.style.background=sw; b.append(i, t); b.onclick=()=>{ tono=k; pintarLb(); }; C.appendChild(b); });
+}
+function mover(d){ const o=ordenar(lista).concat(SIEMPRE); const i=o.indexOf(lbN); const n=o[(i+d+o.length)%o.length]; if(!vistas(n).some(v=>v[0]===lbV)) lbV='logo'; lbN=n; pintarLb(); }
+$('lbPrev').onclick=()=>mover(-1); $('lbNext').onclick=()=>mover(1);
+document.addEventListener('keydown',e=>{ if($('lb').hidden) return; if(e.key==='Escape') $('lb').hidden=true; if(e.key==='ArrowLeft') mover(-1); if(e.key==='ArrowRight') mover(1); });
+
+function render(){
+  const L=$('list'); L.textContent='';
+  const quitar=modo==='quitar';
+  ordenar(lista).concat(SIEMPRE).forEach(n=>{
+    const ahora=SIEMPRE.includes(n);
+    const a=document.createElement('article');
+    a.className='op'+(!quitar&&sel===n?' sel':'')+(!quitar&&favs.has(n)?' fav':'');
+    a.innerHTML=`<button class="zoom" type="button" aria-label="Ver el ${n} en grande"><img src="img/${n}.jpg" alt="Logo ${n}" loading="lazy"></button>
+      ${ahora?'<span class="tag">El de ahora</span>':''}
+      <div class="info"><div class="fila"><span class="num">${n}</span>${quitar?'':`<button class="heart" type="button" aria-pressed="${favs.has(n)}" aria-label="Me gusta el ${n}">${HEART}</button>`}</div>
+      ${quitar ? (ahora?'<p class="fijo">Siempre va</p>':'<button class="out" type="button">Quitar</button>')
+        : (KIT.has(n)?'<button class="marca-b" type="button">Marca</button>':'')}
+      </div>`;
+    L.appendChild(a);
+    a.querySelector('.zoom').onclick=()=>abrir(n);
+    if(quitar){
+      const b=a.querySelector('.out');
+      if(b) b.onclick=()=>{ lista=lista.filter(x=>x!==n); if(sel===n) sel=null; favs.delete(n); guardar(); pintar(); };
+    } else {
+      a.querySelector('.heart').onclick=()=>{ favs.has(n)?favs.delete(n):favs.add(n); pintar(); };
+      const mb=a.querySelector('.marca-b'); if(mb) mb.onclick=()=>abrir(n,'kit');
+    }
+  });
+  const fuera=BASE.filter(n=>!lista.includes(n)), G=$('qgrid'); G.textContent='';
+  $('quitados').hidden=!(quitar && fuera.length);
+  fuera.forEach(n=>{
+    const d=document.createElement('div'); d.className='qit';
+    const im=document.createElement('img'); im.src=`img/${n}.jpg`; im.alt=`Logo ${n}`; im.loading='lazy';
+    const b=document.createElement('button'); b.type='button'; b.textContent=`Devolver ${n}`;
+    b.onclick=()=>{ lista=lista.concat([n]); guardar(); pintar(); };
+    d.append(im,b); G.appendChild(d);
+  });
+}
+function panel(){
+  const p=$('yo'), T=$('yoT'), B=$('yoB'); B.textContent='';
+  if(porLink){
+    p.hidden=true;
+    T.textContent='Así lo ve Francia. Para mandárselo: Compartir → copiar link.';
+    B.append(boton('Volver','lin',()=>{ location.hash=''; }));
+    return;
+  }
+  p.hidden=!puedeEditar();
+  if(modo==='quitar'){ T.textContent='Toca «Quitar» en los que no quieras.'; B.append(boton('Listo','',()=>{ modo='ver'; pintar(); window.scrollTo({top:0}); })); }
+  else { T.textContent=`Francia ve ${lista.length} + el de ahora.`; B.append(boton('Quitar logos','',()=>{ modo='quitar'; pintar(); }), boton('Ver como ella','lin',()=>{ location.hash='ver-'+ordenar(lista).join('-'); })); }
+}
+function bar(){
+  const w=$('what'), s=$('send');
+  if(modo==='quitar'){ w.textContent=`Quedan ${lista.length} + el de ahora`; s.textContent='Listo'; s.disabled=false; return; }
+  s.textContent = s.dataset.saved ? 'Guardar' : 'Enviar';
+  if(!favs.size){ w.textContent='Toca ♡ en los que te gusten'; s.disabled=true; return; }
+  w.textContent=`Te gustan: ${[...favs].sort((a,b)=>a-b).join(', ')}`;
+  s.disabled=false;
+}
+function pintar(){ render(); panel(); bar(); }
+function mensaje(){
+  const f=[...favs].sort((a,b)=>a-b);
+  return f.length?`Me gustan: ${f.join(', ')}.`:'';
+}
+$('send').onclick=async()=>{
+  if(modo==='quitar'){ modo='ver'; pintar(); window.scrollTo({top:0}); return; }
+  $('send').disabled=true; $('send').textContent='Enviando…';
+  let saved=false;
+  try{ if(db && uid){ await db.doc('votes/'+uid).set({favoritas:[...favs].sort((a,b)=>a-b), fecha:new Date().toISOString()}); saved=true; } }catch(e){ saved=false; }
+  $('hecho').hidden=false;
+  $('hechoTxt').textContent = saved ? 'Listo, Cris ya lo puede ver.' : 'Esto elegiste:';
+  $('msgTxt').textContent=mensaje().trim(); $('copiar').hidden=saved;
+  $('waBtn').href='https://wa.me/?text='+encodeURIComponent('Logo Glamour Nails: '+mensaje().trim());
+  $('send').dataset.saved='1'; bar();
+  $('hecho').scrollIntoView({behavior:'smooth',block:'center'});
+};
+$('copyBtn').onclick=async()=>{
+  try{ await navigator.clipboard.writeText($('msgTxt').textContent); $('copyBtn').textContent='Copiado ✓'; }
+  catch(e){ const r=document.createRange(); r.selectNodeContents($('msgTxt')); const g=getSelection(); g.removeAllRanges(); g.addRange(r); $('copyBtn').textContent='Mantén presionado para copiar'; }
+};
+$('lbClose').onclick=()=>$('lb').hidden=true;
+$('lb').onclick=e=>{ if(e.target.id==='lb') $('lb').hidden=true; };
+function desdeHash(){
+  const h=leerHash();
+  if(h && h.length){ porLink=true; lista=h; } else { porLink=false; lista=mia||BASE.slice(); }
+  modo='ver';
+}
+window.addEventListener('hashchange', ()=>{ desdeHash(); pintar(); window.scrollTo({top:0}); });
+desdeHash(); pintar();
+
+(async()=>{
+  if(!runtime) return;
+  try{
+    const [d,u]=await Promise.all([claude.use('db'),claude.use('user')]);
+    db=d;
+    if(u){ isOwner=await u.isOwner(); uid=await u.id(); }
+    if(db){
+      try{ const c=await db.doc('config/lista').get(); const n=c.exists?((c.data()||{}).nums||[]):[];
+        if(Array.isArray(n) && n.length){ mia=n.filter(x=>!SIEMPRE.includes(x)&&x>=1&&x<=OPS.length); if(!porLink) lista=mia.slice(); } }catch(e){}
+      if(uid){ try{ const s=await db.doc('votes/'+uid).get(); const v=s.exists?s.data():null;
+        if(v){ favs=new Set(v.favoritas||[]); $('send').dataset.saved='1'; } }catch(e){} }
+    }
+    pintar();
+    if(db && isOwner){
+      $('votos').hidden=false;
+      db.collection('votes').onSnapshot(q=>{
+        const ul=$('votosList'); ul.textContent='';
+        if(!q.docs.length){ const li=document.createElement('li'); li.textContent='Todavía no hay votos.'; ul.appendChild(li); return; }
+        q.docs.forEach(doc=>{ const v=doc.data()||{}; const li=document.createElement('li');
+          li.textContent=(v.opcion?`Elegido: ${v.opcion}. `:'')+(v.favoritas&&v.favoritas.length?`Le gustan: ${v.favoritas.join(', ')}. `:'')+(v.comentario?`“${v.comentario}”`:''); ul.appendChild(li); });
+      },()=>{});
+    }
+  }catch(e){}
+})();
+</script>
